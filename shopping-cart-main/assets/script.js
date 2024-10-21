@@ -96,15 +96,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartContent = document.querySelector('.cart-content');
         const cartBoxes = cartContent.querySelectorAll('.cart-box');
         let total = 0;
+    
         cartBoxes.forEach((cartBox) => {
             const priceElement = cartBox.querySelector('.cart-price');
             const quantityElement = cartBox.querySelector('.cart-quantity');
-            let price = parseFloat(priceElement.innerText.replace('€', '').replace(',', '.'));
-            let quantity = parseInt(quantityElement.value);
-            total += price * quantity;
+            
+            // Safely parse the price
+            let priceText = priceElement.innerText.replace('₹', '').replace('.','.').trim();
+            let price = parseFloat(priceText);
+            
+            // Safely parse the quantity
+            let quantityText = quantityElement.value.trim();
+            let quantity = parseInt(quantityText);
+    
+            // Ensure price and quantity are valid numbers before performing the calculation
+            if (!isNaN(price) && !isNaN(quantity)) {
+                total += price * quantity;
+            }
         });
-
-        document.querySelector('.total-price').innerText = `${total.toFixed(2).replace('.', ',')} €`;
+    
+        // Display the total price, ensuring it is formatted correctly
+        document.querySelector('.total-price').innerText = `${total.toFixed(2).replace('.','.')} ₹`;
+    }
+    
+    // Example function to add a new item to the cart
+    function addItemToCart(price, quantity) {
+        const cartContent = document.querySelector('.cart-content');
+        
+        // Create a new cart box element
+        const cartBox = document.createElement('div');
+        cartBox.classList.add('cart-box');
+        cartBox.innerHTML = `
+            <div class="cart-price">€${price.toFixed(2).replace('.', '.')}</div>
+            <input type="number" class="cart-quantity" value="${quantity}" min="1" />
+        `;
+        
+        // Append the new cart box to the cart content
+        cartContent.appendChild(cartBox);
+        
+        // Update total price after adding a new item
+        updateTotalPrice();
+    
+        // Add event listener to update total price when quantity changes
+        const quantityElement = cartBox.querySelector('.cart-quantity');
+        quantityElement.addEventListener('change', updateTotalPrice);
     }
 
     document.addEventListener('click', (event) => {

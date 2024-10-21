@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background-color: #007BFF;
+            color: white;
+        }
+        .product-name {
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #e7f3ff;
+        }
+        .select-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Smartphone Comparison</h1>
+
+    <div class="select-container">
+        <label for="phone-select-1">Choose first phone to compare:</label>
+        <select id="phone-select-1">
+            <option value="samsung-galaxy-s23">Samsung Galaxy S23</option>
+            <option value="samsung-galaxy-s23-FE">Samsung Galaxy S23FE</option>
+            <option value="samsung-galaxy-s23-ultra">Samsung Galaxy S23Ultra</option>
+            <option value="samsung-galaxy-s24">Samsung Galaxy S24</option>
+            <option value="samsung-galaxy-s24+">Samsung Galaxy S24+</option>
+            <option value="samsung-galaxy-s24-ultra">Samsung Galaxy S24Ultra</option>
+            <option value="samsung-galaxy-M51">Samsung Galaxy M51</option>
+            <option value="samsung-galaxy-M35">Samsung Galaxy M35</option>
+            <option value="samsung-galaxy-M15">Samsung Galaxy M15</option>
+        </select>
+        <br><br>
+        <label for="phone-select-2">Choose second phone to compare:</label>
+        <select id="phone-select-2">
+            <option value="samsung-galaxy-s23">Samsung Galaxy S23</option>
+            <option value="samsung-galaxy-s23-FE">Samsung Galaxy S23FE</option>
+            <option value="samsung-galaxy-s23-ultra">Samsung Galaxy S23Ultra</option>
+            <option value="samsung-galaxy-s24">Samsung Galaxy S24</option>
+            <option value="samsung-galaxy-s24+">Samsung Galaxy S24+</option>
+            <option value="samsung-galaxy-s24-ultra">Samsung Galaxy S24Ultra</option>
+            <option value="samsung-galaxy-M51">Samsung Galaxy M51</option>
+            <option value="samsung-galaxy-M35">Samsung Galaxy M35</option>
+            <option value="samsung-galaxy-M15">Samsung Galaxy M15</option>
+        </select>
+        <button onclick="comparePhones()">Compare</button>
+    </div>
+
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th class="product-name" id="phone-1-name">Phone 1</th>
+                <th class="product-name" id="phone-2-name">Phone 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Display</td>
+                <td id="phone-1-display">6.1" (15.49 cm)</td>
+                <td id="phone-2-display">6.8" (17.27 cm)</td>
+            </tr>
+            <tr>
+                <td>Processor</td>
+                <td id="phone-1-processor">Qualcomm Snapdragon 8 Gen 2</td>
+                <td id="phone-2-processor">Qualcomm Snapdragon 8 Gen 2</td>
+            </tr>
+            <tr>
+                <td>RAM</td>
+                <td id="phone-1-ram">8 GB</td>
+                <td id="phone-2-ram">12 GB</td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td id="phone-1-storage">128 GB</td>
+                <td id="phone-2-storage">256 GB</td>
+            </tr>
+            <tr>
+                <td>RearCamera</td>
+                <td id="phone-1-rear-camera">50 MP + 12 MP + 10 MP</td>
+                <td id="phone-2-rear-camera">200 MP + 12 MP + 10 MP + 10 MP</td>
+            </tr>
+            <tr>
+                <td>FrontCamera</td>
+                <td id="phone-1-front-camera">12 MP</td>
+                <td id="phone-2-display">12 MP</td>
+            </tr><tr>
+                <td>Battery</td>
+                <td id="phone-1-battery">3900 mAh</td>
+                <td id="phone-2-battery">5000 mAh</td>
+            </tr><tr>
+                <td>Refresh Rate</td>
+                <td id="phone-1-refresh-rate">120 Hz</td>
+                <td id="phone-2-refresh-rate">120 Hz</td>
+            </tr><tr>
+                <td>Price</td>
+                <td id="phone-1-display">₹55000</td>
+                <td id="phone-2-display">₹85000</td>
+            </tr>
+                <td

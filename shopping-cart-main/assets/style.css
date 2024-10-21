@@ -222,26 +222,26 @@ header {
 }
 
 .product-img {
-    width: 100%;
+    width: 85%;
     height: auto;
     margin-bottom: 0.5rem;
 }
 
 .product-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
 
 .price {
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .add-cart {
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 1;
     background: var(--text-color);
     color: var(--bg-color);
     padding: 10px;
@@ -291,6 +291,6 @@ header {
     }
 
     .cart {
-        width: 280px;
+        width: 180px;
     }
 }
