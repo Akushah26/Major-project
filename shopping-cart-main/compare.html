@@ -128,6 +128,11 @@
                 <td id="phone-1-price"></td>
                 <td id="phone-2-price"></td>
             </tr>
+            <tr>
+                <td>Image</td>
+                <td id="phone-1-image"></td>
+                <td id="phone-2-image"></td>
+            </tr>
         </tbody>
     </table>
 <script>
@@ -148,7 +153,8 @@
             frontCamera: "12 MP",
             battery: "3900 mAh",
             refreshRate: "120 Hz",
-            price: "₹55000"
+            price: "₹55000",
+            Image:"product photo/Samsung-Galaxy-S23.jpg"
         },
         "samsung-galaxy-s23-FE": {
             name: "Samsung Galaxy S23 FE",
@@ -160,7 +166,8 @@
             frontCamera: "32 MP",
             battery: "4500 mAh",
             refreshRate: "120 Hz",
-            price: "₹60000"
+            price: "₹60000",
+            Image:"product photo/Samsung-Galaxy-S23.jpg"
         },
         "samsung-galaxy-s23-ultra": {
             name: "Samsung Galaxy S23 Ultra",
@@ -172,7 +179,8 @@
             frontCamera: "12 MP",
             battery: "5000 mAh",
             refreshRate: "120 Hz",
-            price: "₹85000"
+            price: "₹85000",
+            Image:"product photo/Samsung-Galaxy-S23.jpg"
         },
         // Add additional phone data as needed
     };
@@ -207,5 +215,8 @@
 
     document.getElementById('phone-1-price').innerText = phoneData[phone1].price;
     document.getElementById('phone-2-price').innerText = phoneData[phone2].price;
+
+    document.getElementById('phone-1-image').innerText = phoneData[phone1].Image;
+    document.getElementById('phone-2-image').innerText = phoneData[phone2].Image;
 }
 </script>

@@ -28,9 +28,15 @@
                 placeholder="Write your review here">
         </textarea>
         <button id="submit">Submit</button>
+        <button id="backButton">Back</button> <!-- Back button added here -->
         <div class="reviews" id="reviews">
         </div>
     </div>
+    <script>
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redirect to index.html
+        });
+    </script>
     <script src="script2.js"></script>
 </body>
 
