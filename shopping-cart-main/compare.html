@@ -75,55 +75,82 @@
         <button onclick="comparePhones()">Compare</button>
     </div>
 
-    <table class="comparison-table">
-        <thead>
-            <tr>
-                <th>Feature</th>
-                <th class="product-name" id="phone-1-name">Phone 1</th>
-                <th class="product-name" id="phone-2-name">Phone 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Display</td>
-                <td id="phone-1-display">6.1" (15.49 cm)</td>
-                <td id="phone-2-display">6.8" (17.27 cm)</td>
-            </tr>
-            <tr>
-                <td>Processor</td>
-                <td id="phone-1-processor">Qualcomm Snapdragon 8 Gen 2</td>
-                <td id="phone-2-processor">Qualcomm Snapdragon 8 Gen 2</td>
-            </tr>
-            <tr>
-                <td>RAM</td>
-                <td id="phone-1-ram">8 GB</td>
-                <td id="phone-2-ram">12 GB</td>
-            </tr>
-            <tr>
-                <td>Storage</td>
-                <td id="phone-1-storage">128 GB</td>
-                <td id="phone-2-storage">256 GB</td>
-            </tr>
-            <tr>
-                <td>RearCamera</td>
-                <td id="phone-1-rear-camera">50 MP + 12 MP + 10 MP</td>
-                <td id="phone-2-rear-camera">200 MP + 12 MP + 10 MP + 10 MP</td>
-            </tr>
-            <tr>
-                <td>FrontCamera</td>
-                <td id="phone-1-front-camera">12 MP</td>
-                <td id="phone-2-display">12 MP</td>
-            </tr><tr>
-                <td>Battery</td>
-                <td id="phone-1-battery">3900 mAh</td>
-                <td id="phone-2-battery">5000 mAh</td>
-            </tr><tr>
-                <td>Refresh Rate</td>
-                <td id="phone-1-refresh-rate">120 Hz</td>
-                <td id="phone-2-refresh-rate">120 Hz</td>
-            </tr><tr>
-                <td>Price</td>
-                <td id="phone-1-display">₹55000</td>
-                <td id="phone-2-display">₹85000</td>
-            </tr>
-                <td
+<script>
+    function comparePhones() {
+    // Get the selected values from the dropdowns
+    const phone1 = document.getElementById('phone-select-1').value;
+    const phone2 = document.getElementById('phone-select-2').value;
+
+    // Define phone data (this would typically come from a database or API)
+    const phoneData = {
+        "samsung-galaxy-s23": {
+            name: "Samsung Galaxy S23",
+            display: "6.1\" (15.49 cm)",
+            processor: "Qualcomm Snapdragon 8 Gen 2",
+            ram: "8 GB",
+            storage: "128 GB",
+            rearCamera: "50 MP + 12 MP + 10 MP",
+            frontCamera: "12 MP",
+            battery: "3900 mAh",
+            refreshRate: "120 Hz",
+            price: "₹55000"
+        },
+        "samsung-galaxy-s23-FE": {
+            name: "Samsung Galaxy S23 FE",
+            display: "6.4\" (16.26 cm)",
+            processor: "Qualcomm Snapdragon 8 Gen 1",
+            ram: "8 GB",
+            storage: "256 GB",
+            rearCamera: "50 MP + 12 MP + 8 MP",
+            frontCamera: "32 MP",
+            battery: "4500 mAh",
+            refreshRate: "120 Hz",
+            price: "₹60000"
+        },
+        "samsung-galaxy-s23-ultra": {
+            name: "Samsung Galaxy S23 Ultra",
+            display: "6.8\" (17.27 cm)",
+            processor: "Qualcomm Snapdragon 8 Gen 2",
+            ram: "12 GB",
+            storage: "256 GB",
+            rearCamera: "200 MP + 12 MP + 10 MP + 10 MP",
+            frontCamera: "12 MP",
+            battery: "5000 mAh",
+            refreshRate: "120 Hz",
+            price: "₹85000"
+        },
+        // Add additional phone data as needed
+    };
+
+    // Update the comparison table
+    document.getElementById('phone-1-name').innerText = phoneData[phone1].name;
+    document.getElementById('phone-2-name').innerText = phoneData[phone2].name;
+
+    document.getElementById('phone-1-display').innerText = phoneData[phone1].display;
+    document.getElementById('phone-2-display').innerText = phoneData[phone2].display;
+
+    document.getElementById('phone-1-processor').innerText = phoneData[phone1].processor;
+    document.getElementById('phone-2-processor').innerText = phoneData[phone2].processor;
+
+    document.getElementById('phone-1-ram').innerText = phoneData[phone1].ram;
+    document.getElementById('phone-2-ram').innerText = phoneData[phone2].ram;
+
+    document.getElementById('phone-1-storage').innerText = phoneData[phone1].storage;
+    document.getElementById('phone-2-storage').innerText = phoneData[phone2].storage;
+
+    document.getElementById('phone-1-rear-camera').innerText = phoneData[phone1].rearCamera;
+    document.getElementById('phone-2-rear-camera').innerText = phoneData[phone2].rearCamera;
+
+    document.getElementById('phone-1-front-camera').innerText = phoneData[phone1].frontCamera;
+    document.getElementById('phone-2-front-camera').innerText = phoneData[phone2].frontCamera;
+
+    document.getElementById('phone-1-battery').innerText = phoneData[phone1].battery;
+    document.getElementById('phone-2-battery').innerText = phoneData[phone2].battery;
+
+    document.getElementById('phone-1-refresh-rate').innerText = phoneData[phone1].refreshRate;
+    document.getElementById('phone-2-refresh-rate').innerText = phoneData[phone2].refreshRate;
+
+    document.getElementById('phone-1-price').innerText = phoneData[phone1].price;
+    document.getElementById('phone-2-price').innerText = phoneData[phone2].price;
+}
+</script>
