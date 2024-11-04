@@ -74,7 +74,62 @@
         </select>
         <button onclick="comparePhones()">Compare</button>
     </div>
-
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th class="product-name" id="phone-1-name"></th>
+                <th class="product-name" id="phone-2-name"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Display</td>
+                <td id="phone-1-display"></td>
+                <td id="phone-2-display"></td>
+            </tr>
+            <tr>
+                <td>Processor</td>
+                <td id="phone-1-processor"></td>
+                <td id="phone-2-processor"></td>
+            </tr>
+            <tr>
+                <td>RAM</td>
+                <td id="phone-1-ram"></td>
+                <td id="phone-2-ram"></td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td id="phone-1-storage"></td>
+                <td id="phone-2-storage"></td>
+            </tr>
+            <tr>
+                <td>Rear Camera</td>
+                <td id="phone-1-rear-camera"></td>
+                <td id="phone-2-rear-camera"></td>
+            </tr>
+            <tr>
+                <td>Front Camera</td>
+                <td id="phone-1-front-camera"></td>
+                <td id="phone-2-front-camera"></td>
+            </tr>
+            <tr>
+                <td>Battery</td>
+                <td id="phone-1-battery"></td>
+                <td id="phone-2-battery"></td>
+            </tr>
+            <tr>
+                <td>Refresh Rate</td>
+                <td id="phone-1-refresh-rate"></td>
+                <td id="phone-2-refresh-rate"></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td id="phone-1-price"></td>
+                <td id="phone-2-price"></td>
+            </tr>
+        </tbody>
+    </table>
 <script>
     function comparePhones() {
     // Get the selected values from the dropdowns
