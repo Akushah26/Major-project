@@ -84,6 +84,11 @@
         </thead>
         <tbody>
             <tr>
+                <td>Image</td>
+                <td id="phone-1-image"></td>
+                <td id="phone-2-image"></td>
+            </tr>
+            <tr>
                 <td>Display</td>
                 <td id="phone-1-display"></td>
                 <td id="phone-2-display"></td>
@@ -128,11 +133,7 @@
                 <td id="phone-1-price"></td>
                 <td id="phone-2-price"></td>
             </tr>
-            <tr>
-                <td>Image</td>
-                <td id="phone-1-image"></td>
-                <td id="phone-2-image"></td>
-            </tr>
+            
         </tbody>
     </table>
 <script>
@@ -216,7 +217,7 @@
     document.getElementById('phone-1-price').innerText = phoneData[phone1].price;
     document.getElementById('phone-2-price').innerText = phoneData[phone2].price;
 
-    document.getElementById('phone-1-image').innerText = phoneData[phone1].Image;
-    document.getElementById('phone-2-image').innerText = phoneData[phone2].Image;
+    document.getElementById('phone-1-image').innerHTML = `<img src="${phoneData[phone1].Image}" alt="${phoneData[phone1].name}" style="width:300px;height:auto;">`;
+    document.getElementById('phone-2-image').innerHTML = `<img src="${phoneData[phone2].Image}" alt="${phoneData[phone2].name}" style="width:300px;height:auto;">`;
 }
 </script>
