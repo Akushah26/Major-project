@@ -18,10 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.add-cart').forEach((button) => {
             button.addEventListener('click', addCartClicked);
         });
-
-        document.querySelector('.btn-buy').addEventListener('click', buyButtonClicked);
+        document.querySelector('.btn-buy').addEventListener('click', function() {
+            const cartContent = document.querySelector('.cart-content');
+            const cartItems = cartContent.querySelectorAll('.cart-box');
+            if (cartItems.length === 0) {
+                alert('Your cart is empty');
+            } else {
+                alert('Order successfully placed');
+                while (cartContent.firstChild) {
+                    cartContent.removeChild(cartContent.firstChild);
+                }
+                document.querySelector('.total-price').innerText = '0,00 €';
+                
+                // Redirect to address.html after placing the order
+                window.location.href = 'address.html';
+            }
+        });
     };
-
     initCartFunctions();
 
     function buyButtonClicked() {
