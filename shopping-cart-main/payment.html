@@ -5,10 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="payment.css">
     <title>Payment Page</title>
+    <style>
+      /* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark text color */
+    line-height: 1.6; /* Improved line height for readability */
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #4CAF50; /* Green color for headings */
+}
+
+.payment-option {
+    background: #fff; /* White background for options */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Padding for spacing */
+    margin-bottom: 10px; /* Space between options */
+    transition: box-shadow 0.3s; /* Smooth shadow transition */
+}
+
+.payment-option:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.hidden {
+    display: none;
+}
+
+#card-payment-form {
+    background: #fff; /* White background for the form */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding for spacing */
+    margin-top: 20px; /* Space above the form */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+label {
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Space below labels */
+    font-weight: bold; /* Bold labels */
+}
+
+input[type="text"],
+input[type="month"] {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+input[type="text"]:focus,
+input[type="month"]:focus {
+    border-color: #4CAF50; /* Green border on focus */
+    outline: none; /* Remove default outline */
+}
+
+button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding for spacing */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Inline-block display */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+#confirmation-message {
+    background: #e7f9e7; /* Light green background */
+    border: 1px solid #c3e6c3; /* Green border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding for spacing */
+    margin-top: 20px; /* Space above confirmation message */
+}
+
+#go-home-button {
+    margin-top: 10px; /* Space above the button */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduced padding on smaller screens */
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller heading on mobile */
+    }
+
+    button {
+        width: 100%; /* Full width buttons on mobile */
+    }
+}
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Payment Information</h1>
+    <h1>Select Payment Method</h1>
+    <div class="payment-option">
+        <input type="radio" id="cod" name="payment-method" value="cod" checked>
+        <label for="cod">Cash on Delivery</label>
+    </div>
+    <div class="payment-option">
+        <input type="radio" id="card" name="payment-method" value="card">
+        <label for="card">Card Payment</label>
+    </div>
+
+    <div id="card-payment-form" class="hidden">
+        <h2>Card Payment Information</h2>
         <form id="payment-form" action="/submit-payment" method="POST">
             <div class="form-group">
                 <label for="name">Name on Card:</label>
@@ -16,7 +143,7 @@
             </div>
             <div class="form-group">
                 <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" name="card-number" required>
+                <input type="text" id="card-number" name="card-number" required pattern="\d{13,16}" inputmode="numeric">
             </div>
             <div class="form-group">
                 <label for="expiration-date">Expiration Date:</label>
@@ -24,26 +151,45 @@
             </div>
             <div class="form-group">
                 <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required>
+                <input type="text" id="cvv" name="cvv" required pattern="\d{3,4}" inputmode="numeric">
             </div>
             <button type="submit" class="pay-button">Pay Now</button>
         </form>
-        <div id="confirmation-message" style="display: none;"></div>
+        <div id="confirmation-message" class="hidden">
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your payment.</p>
+            <button id="go-home-button" onclick="window.location.href='index.html';">Go to Home</button>
+        </div>
     </div>
+
+    <script>
+        // Show/hide payment form based on selected payment method
+        const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+        const cardPaymentForm = document.getElementById('card-payment-form');
+
+        paymentOptions.forEach(option => {
+            option.addEventListener('change', function() {
+                if (this.value === 'card') {
+                    cardPaymentForm.classList.remove('hidden');
+                } else {
+                    cardPaymentForm.classList.add('hidden');
+                }
+            });
+        });
+
+        // Handle card payment form submission
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Here you can include any additional validation or processing
+
+            // Display confirmation message
+            const confirmationMessage = document.getElementById('confirmation-message');
+            confirmationMessage.classList.remove('hidden');
+            
+            // Optionally, clear the form
+            this.reset();
+        });
+    </script>
 </body>
 </html>
-<script>
-    document.getElementById('payment-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        
-        // Here you can include any additional validation or processing
-
-        // Display confirmation message
-        const confirmationMessage = document.getElementById('confirmation-message');
-        confirmationMessage.style.display = 'block';
-        confirmationMessage.innerHTML = '<h2>Payment Successful!</h2><p>Thank you for your payment.</p>';
-        
-        // Optionally, clear the form
-        this.reset();
-    });
-</script>
