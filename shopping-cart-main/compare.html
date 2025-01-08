@@ -7,113 +7,129 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
 
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-}
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
 
-/* Select Container Styles */
-.select-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
+        /* Select Container Styles */
+        .select-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-.select-container label {
-    font-weight: bold;
-    margin-right: 10px;
-}
+        .select-container label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
 
-.select-container select {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        .select-container select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-.select-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-}
+        .select-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
 
-.select-container button:hover {
-    background-color: #0056b3;
-}
+        .select-container button:hover {
+            background-color: #0056b3;
+        }
 
-/* Table Styles */
-.comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+        /* Table Styles */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.comparison-table th,
-.comparison-table td {
-    border: 1px solid #ccc;
-    padding: 15px;
-    text-align: center;
-}
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+        }
 
-.comparison-table th {
-    background-color: #007BFF;
-    color: white;
-}
+        .comparison-table th {
+            background-color: #007BFF;
+            color: white;
+        }
 
-.comparison-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
 
-.comparison-table tr:hover {
-    background-color: #e7f3ff;
-}
+        .comparison-table tr:hover {
+            background-color: #e7f3ff;
+        }
 
-/* Product Name Styles */
-.product-name {
-    font-weight: bold;
-    font-size: 18px;
-    color: #333;
-}
+        /* Product Name Styles */
+        .product-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
 
-/* Image Styles */
-#phone-1-image img,
-#phone-2-image img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+        /* Image Styles */
+        #phone-1-image img,
+        #phone-2-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .comparison-table {
-        font-size: 14px;
-    }
-    
-    .select-container {
-        flex-direction: column;
-    }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .comparison-table {
+                font-size: 14px;
+            }
 
-    .select-container select,
-    .select-container button {
-        width: 100%;
-        margin: 5px 0;
-    }
-}
+            .select-container {
+                flex-direction: column;
+            }
+
+            .select-container select,
+            .select-container button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+        /* Back Button Styles */
+        #back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin:  20px;
+        }
+
+        #back-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -124,7 +140,7 @@ h1 {
         <label for="phone-select-1">Choose first phone to compare:</label>
         <select id="phone-select-1">
             <option value="samsung-galaxy-s23">Samsung Galaxy S23</option>
-            <option value="samsung-galaxy-s23-FE">Samsung Galaxy S23FE</option>
+            <option value ="samsung-galaxy-s23-FE">Samsung Galaxy S23FE</option>
             <option value="samsung-galaxy-s23-ultra">Samsung Galaxy S23Ultra</option>
             <option value="samsung-galaxy-s24">Samsung Galaxy S24</option>
             <option value="samsung-galaxy-s24+">Samsung Galaxy S24+</option>
@@ -148,6 +164,7 @@ h1 {
         </select>
         <button onclick="comparePhones()">Compare</button>
     </div>
+    
     <table class="comparison-table">
         <thead>
             <tr>
@@ -207,168 +224,184 @@ h1 {
                 <td id="phone-1-price"></td>
                 <td id="phone-2-price"></td>
             </tr>
-            
         </tbody>
     </table>
-<script>
-    function comparePhones() {
-    // Get the selected values from the dropdowns
-    const phone1 = document.getElementById('phone-select-1').value;
-    const phone2 = document.getElementById('phone-select-2').value;
 
-    // Define phone data (this would typically come from a database or API)
-    const phoneData = {
-        "samsung-galaxy-s23": {
-            name: "Samsung Galaxy S23",
-            display: "6.1\" (15.49 cm)",
-            processor: "Qualcomm Snapdragon 8 Gen 2",
-            ram: "8 GB",
-            storage: "128 GB",
-            rearCamera: "50 MP + 12 MP + 10 MP",
-            frontCamera: "12 MP",
-            battery: "3900 mAh",
-            refreshRate: "120 Hz",
-            price: "₹55000",
-            Image:"product photo/Samsung-Galaxy-S23.jpg"
-        },
-        "samsung-galaxy-s23-FE": {
-            name: "Samsung Galaxy S23 FE",
-            display: "6.4\" (16.26 cm)",
-            processor: "Qualcomm Snapdragon 8 Gen 1",
-            ram: "8 GB",
-            storage: "256 GB",
-            rearCamera: "50 MP + 12 MP + 8 MP",
-            frontCamera: "32 MP",
-            battery: "4500 mAh",
-            refreshRate: "120 Hz",
-            price: "₹60000",
-            Image:"product photo/Samsung-Galaxy-S23.jpg"
-        },
-        "samsung-galaxy-s23-ultra": {
-            name: "Samsung Galaxy S23 Ultra",
-            display: "6.8\" (17.27 cm)",
-            processor: "Qualcomm Snapdragon 8 Gen 2",
-            ram: "12 GB",
-            storage: "256 GB",
-            rearCamera: "200 MP + 12 MP + 10 MP + 10 MP",
-            frontCamera: "12 MP",
-            battery: "5000 mAh",
-            refreshRate: "120 Hz",
-            price: "₹85000",
-            Image:"product photo/Samsung-Galaxy-S23.jpg"
-        },
-        "samsung-galaxy-s24": {
-            name: "Samsung Galaxy S24",
-            display: "6.2\" (15.75 cm)",
-            processor: "Samsung Exynos 2400",
-            ram: "8 GB",
-            storage: "256 GB",
-            rearCamera: "50 MP + 10 MP + 12 MP",
-            frontCamera: "12 MP",
-            battery: "5000 mAh",
-            refreshRate: "120 Hz",
-            price: "₹65000",
-            Image:"product photo/S24.jpeg"
-        }, 
-        "samsung-galaxy-s24+": {
-            name: "Samsung Galaxy S24+",
-            display: "6.7\" (17.02 cm)",
-            processor: "Samsung Exynos 2400",
-            ram: "12 GB",
-            storage: "256 GB",
-            rearCamera: "50 MP + 12 MP + 10 MP",
-            frontCamera: "12 MP",
-            battery: "4900 mAh",
-            refreshRate: "120 Hz",
-            price: "₹80000",
-            Image:"product photo/S24+.png.webp"
-        }, 
-        "samsung-galaxy-s24-ultra": {
-            name: "Samsung Galaxy S24 Ultra",
-            display: "6.8\" (17.27 cm)",
-            processor: "Qualcomm Snapdragon 8 Gen 3",
-            ram: "12 GB",
-            storage: "256 GB",
-            rearCamera: "200 MP + 12 MP + 10 MP + 50 MP",
-            frontCamera: "12 MP",
-            battery: "5000 mAh",
-            refreshRate: "120 Hz",
-            price: "₹110000",
-            Image:"product photo/S24 Ultra.jpg"
-        },
-         "samsung-galaxy-M51": {
-            name: "Samsung Galaxy M51",
-            display: "6.6\" (16.76 cm)",
-            processor: "Samsung Exynos 1380",
-            ram: "8 GB",
-            storage: "256 GB",
-            rearCamera: "50 MP + 8 MP + 2 MP",
-            frontCamera: "13 MP",
-            battery: "6000 mAh",
-            refreshRate: "120 Hz",
-            price: "₹50000",
-            Image:"product photo/CGG_Samsung_Galaxy_M51.jpg"
-        },
-         "samsung-galaxy-M35": {
-            name: "Samsung Galaxy M35",
-            display: "6.6\" (16.76 cm)",
-            processor: "Samsung Exynos 1380",
-            ram: "6 GB",
-            storage: "128 GB",
-            rearCamera: "50 MP + 8 MP + 2 MP",
-            frontCamera: "13 MP",
-            battery: "6000 mAh",
-            refreshRate: "120 Hz",
-            price: "₹45000",
-            Image:"product photo/m35.jpeg"
-        }, 
-        "samsung-galaxy-M15": {
-            name: "Samsung Galaxy M15",
-            display: "6.5\" (16.51 cm)",
-            processor: "MediaTek Dimensity 6100 Plus",
-            ram: "4 GB",
-            storage: "128 GB",
-            rearCamera: "50 MP + 5 MP + 2 MP",
-            frontCamera: "13 MP",
-            battery: "6000 mAh",
-            refreshRate: "90 Hz",
-            price: "₹35000",
-            Image:"product photo/Samsung-Galaxy-M15-5G.jpg.webp"
-        },
-    };
+    <!-- Add the Back Button here -->
+    <button id="back-button" onclick="goToHomePage()">Back to Home</button>
 
-    // Update the comparison table
-    document.getElementById('phone-1-name').innerText = phoneData[phone1].name;
-    document.getElementById('phone-2-name').innerText = phoneData[phone2].name;
+    <script>
+        function goToHomePage() {
+            // Navigate to the home page
+            window.location.href = 'index.html'; // Change this to your home page URL
+        }
 
-    document.getElementById('phone-1-display').innerText = phoneData[phone1].display;
-    document.getElementById('phone-2-display').innerText = phoneData[phone2].display;
+        function comparePhones() {
+            // Get the selected values from the dropdowns
+            const phone1 = document .getElementById('phone-select-1').value;
+            const phone2 = document.getElementById('phone-select-2').value;
 
-    document.getElementById('phone-1-processor').innerText = phoneData[phone1].processor;
-    document.getElementById('phone-2-processor').innerText = phoneData[phone2].processor;
+            // Check if both selected phones are the same
+            if (phone1 === phone2) {
+                alert("Please select two different phones to compare.");
+                return;
+            }
 
-    document.getElementById('phone-1-ram').innerText = phoneData[phone1].ram;
-    document.getElementById('phone-2-ram').innerText = phoneData[phone2].ram;
+            // Define phone data (this would typically come from a database or API)
+            const phoneData = {
+                "samsung-galaxy-s23": {
+                    name: "Samsung Galaxy S23",
+                    display: "6.1\" (15.49 cm)",
+                    processor: "Qualcomm Snapdragon 8 Gen 2",
+                    ram: "8 GB",
+                    storage: "128 GB",
+                    rearCamera: "50 MP + 12 MP + 10 MP",
+                    frontCamera: "12 MP",
+                    battery: "3900 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹55000",
+                    Image: "product photo/Samsung-Galaxy-S23.jpg"
+                },
+                "samsung-galaxy-s23-FE": {
+                    name: "Samsung Galaxy S23 FE",
+                    display: "6.4\" (16.26 cm)",
+                    processor: "Qualcomm Snapdragon 8 Gen 1",
+                    ram: "8 GB",
+                    storage: "256 GB",
+                    rearCamera: "50 MP + 12 MP + 8 MP",
+                    frontCamera: "32 MP",
+                    battery: "4500 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹60000",
+                    Image: "product photo/Samsung-Galaxy-S23.jpg"
+                },
+                "samsung-galaxy-s23-ultra": {
+                    name: "Samsung Galaxy S23 Ultra",
+                    display: "6.8\" (17.27 cm)",
+                    processor: "Qualcomm Snapdragon 8 Gen 2",
+                    ram: "12 GB",
+                    storage: "256 GB",
+                    rearCamera: "200 MP + 12 MP + 10 MP + 10 MP",
+                    frontCamera: "12 MP",
+                    battery: "5000 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹85000",
+                    Image: "product photo/Samsung-Galaxy-S23.jpg"
+                },
+                "samsung-galaxy-s24": {
+                    name: "Samsung Galaxy S24",
+                    display: "6.2\" (15.75 cm)",
+                    processor: "Samsung Exynos 2400",
+                    ram: "8 GB",
+                    storage: "256 GB",
+                    rearCamera: "50 MP + 10 MP + 12 MP",
+                    frontCamera: "12 MP",
+                    battery: "5000 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹65000",
+                    Image: "product photo/S24.jpeg"
+                },
+                "samsung-galaxy-s24+": {
+                    name: "Samsung Galaxy S24+",
+                    display: "6.7\" (17.02 cm)",
+                    processor: "Samsung Exynos 2400",
+                    ram: "12 GB",
+                    storage: "256 GB",
+                    rearCamera: "50 MP + 12 MP + 10 MP",
+                    frontCamera: "12 MP",
+                    battery: "4900 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹80000",
+                    Image: "product photo/S24+.png.webp"
+                },
+                "samsung-galaxy-s24-ultra": {
+                    name: "Samsung Galaxy S24 Ultra",
+                    display: "6.8\" (17.27 cm)",
+                    processor: "Qualcomm Snapdragon 8 Gen 3",
+                    ram: "12 GB",
+                    storage: "256 GB",
+                    rearCamera: "200 MP + 12 MP + 10 MP + 50 MP",
+                    frontCamera: "12 MP",
+                    battery: "5000 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹110000",
+                    Image: "product photo/S24 Ultra.jpg"
+                },
+                "samsung-galaxy-M51": {
+                    name: "Samsung Galaxy M51",
+                    display: "6.6\" (16.76 cm)",
+                    processor: "Samsung Exynos 1380",
+                    ram: "8 GB",
+                    storage: "256 GB",
+                    rearCamera: "50 MP + 8 MP + 2 MP",
+                    frontCamera: "13 MP",
+                    battery: "6000 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹50000",
+                    Image: "product photo/CGG_Samsung_Galaxy_M51.jpg"
+                },
+                "samsung-galaxy-M35": {
+                    name: "Samsung Galaxy M35",
+                    display: "6.6\" (16.76 cm)",
+                    processor: "Samsung Exynos 1380",
+                    ram: "6 GB",
+                    storage: "128 GB",
+                    rearCamera: "50 MP + 8 MP + 2 MP",
+                    frontCamera: "13 MP",
+                    battery: "6000 mAh",
+                    refreshRate: "120 Hz",
+                    price: "₹45000",
+                    Image: "product photo/m35.jpeg"
+                },
+                "samsung-galaxy-M15": {
+                    name: "Samsung Galaxy M15",
+                    display: "6.5\" (16.51 cm)",
+                    processor: "MediaTek Dimensity 6100 Plus",
+                    ram: "4 GB",
+                    storage: "128 GB",
+                    rearCamera: "50 MP + 5 MP + 2 MP",
+                    frontCamera: "13 MP",
+                    battery: "6000 mAh",
+                    refreshRate: "90 Hz",
+                    price: "₹35000",
+                    Image: "product photo/Samsung-Galaxy-M15-5G.jpg.webp"
+                },
+            };
 
-    document.getElementById('phone-1-storage').innerText = phoneData[phone1].storage;
-    document.getElementById('phone-2-storage').innerText = phoneData[phone2].storage;
+            // Update the comparison table
+            document.getElementById('phone-1-name').innerText = phoneData[phone1].name;
+            document.getElementById('phone-2-name').innerText = phoneData[phone2].name;
 
-    document.getElementById('phone-1-rear-camera').innerText = phoneData[phone1].rearCamera;
-    document.getElementById('phone-2-rear-camera').innerText = phoneData[phone2].rearCamera;
+            document.getElementById('phone-1-display').innerText = phoneData[phone1].display;
+            document.getElementById('phone-2-display').innerText = phoneData[phone2].display;
 
-    document.getElementById('phone-1-front-camera').innerText = phoneData[phone1].frontCamera;
-    document.getElementById('phone-2-front-camera').innerText = phoneData[phone2].frontCamera;
+            document.getElementById('phone-1-processor').innerText = phoneData[phone1].processor;
+            document.getElementById('phone-2-processor').innerText = phoneData[phone2].processor;
 
-    document.getElementById('phone-1-battery').innerText = phoneData[phone1].battery;
-    document.getElementById('phone-2-battery').innerText = phoneData[phone2].battery;
+            document.getElementById('phone-1-ram').innerText = phoneData[phone1].ram;
+            document.getElementById('phone-2-ram').innerText = phoneData[phone2].ram;
 
-    document.getElementById('phone-1-refresh-rate').innerText = phoneData[phone1].refreshRate;
-    document.getElementById('phone-2-refresh-rate').innerText = phoneData[phone2].refreshRate;
+            document.getElementById('phone-1-storage').innerText = phoneData[phone1].storage;
+            document.getElementById('phone-2-storage').innerText = phoneData[phone2].storage;
 
-    document.getElementById('phone-1-price').innerText = phoneData[phone1].price;
-    document.getElementById('phone-2-price').innerText = phoneData[phone2].price;
+            document.getElementById('phone-1-rear-camera').innerText = phoneData[phone1].rearCamera;
+            document.getElementById('phone-2-rear-camera').innerText = phoneData[phone2].rearCamera;
 
-    document.getElementById('phone-1-image').innerHTML = `<img src="${phoneData[phone1].Image}" alt="${phoneData[phone1].name}" style="width:300px;height:auto;">`;
-    document.getElementById('phone-2-image').innerHTML = `<img src="${phoneData[phone2].Image}" alt="${phoneData[phone2].name}" style="width:300px;height:auto;">`;
-}
-</script>
+            document.getElementById('phone-1-front-camera').innerText = phoneData[phone1].frontCamera;
+            document.getElementById('phone-2-front-camera').innerText = phoneData[phone2].frontCamera;
+
+            document.getElementById('phone-1-battery').innerText = phoneData[phone1].battery;
+            document.getElementById('phone-2-battery').innerText = phoneData[phone2].battery;
+
+            document.getElementById('phone-1-refresh-rate').innerText = phoneData[phone1].refreshRate;
+            document.getElementById('phone-2-refresh-rate').innerText = phoneData[phone2].refreshRate;
+
+            document.getElementById('phone-1-price').innerText = phoneData[phone1].price;
+            document.getElementById('phone-2-price').innerText = phoneData[phone2].price;
+
+            document.getElementById('phone-1-image').innerHTML = `<img src="${phoneData[phone1].Image}" alt="${phoneData[phone1].name}" style="width:300px;height:auto;">`;
+            document.getElementById('phone-2-image').innerHTML = `<img src="${phoneData[phone2].Image}" alt="${phoneData[phone2].name}" style="width:300px;height:auto;">`;
+        }
+    </script>
+</body>
+</html>
