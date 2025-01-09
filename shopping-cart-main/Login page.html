@@ -1,67 +1,96 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="style2.css">
-<div class="wrapper">
-  <div class="title-text">
-    <div class="title login">Login Form</div>
-    <div class="title signup">Signup Form</div>
-  </div>
-  <div class="form-container">
-    <div class="slide-controls">
-      <input type="radio" name="slide" id="login" checked>
-      <input type="radio" name="slide" id="signup">
-      <label for="login" class="slide login">Login</label>
-      <label for="signup" class="slide signup">Signup</label>
-      <div class="slider-tab"></div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Signup Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="title-text">
+      <div class="title login">Login Form</div>
+      <div class="title signup">Signup Form</div>
     </div>
-    <div class="form-inner">
-      <form action="index.html" class="login">
-        <div class="field">
-          <input type="text" placeholder="Email Address" required>
-        </div>
-        <div class="field">
-          <input type="password" placeholder="Password" required>
-        </div>
-        <div class="field btn">
-          <div class="btn-layer"></div>
-          <input type="submit" value="Login">
-        </div>
-        <div class="signup-link">Not a member? <a href="">Signup now</a></div>
-      </form>
-      <form action="#" class="signup">
-        <div class="field">
-          <input type="text" placeholder="Email Address" required>
-        </div>
-        <div class="field">
-          <input type="password" placeholder="Password" required>
-        </div>
-        <div class="field">
-          <input type="password" placeholder="Confirm password" required>
-        </div>
-        <div class="field btn">
-          <div class="btn-layer"></div>
-          <input type="submit" value="Signup">
-        </div>
-      </form>
+    <div class="form-container">
+      <div class="slide-controls">
+        <input type="radio" name="slide" id="login" checked>
+        <input type="radio" name="slide" id="signup">
+        <label for="login" class="slide login">Login</label>
+        <label for="signup" class="slide signup">Signup</label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form action="index.html" class="login">
+          <div class="field">
+            <input type="text" placeholder="Email Address" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Login" class="btn btn-primary">
+          </div>
+          <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+        </form>
+        <form action="#" class="signup">
+          <div class="field">
+            <input type="text" placeholder="Email Address" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required>
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Confirm password" required>
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Signup" class="btn btn-primary">
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
 <script>
-   const loginText = document.querySelector(".title-text .login");
-      const loginForm = document.querySelector("form.login");
-      const loginBtn = document.querySelector("label.login");
-      const signupBtn = document.querySelector("label.signup");
-      const signupLink = document.querySelector("form .signup-link a");
-      signupBtn.onclick = (()=>{
-        loginForm.style.marginLeft = "-50%";
-        loginText.style.marginLeft = "-50%";
-      });
-      loginBtn.onclick = (()=>{
-        loginForm.style.marginLeft = "0%";
-        loginText.style.marginLeft = "0%";
-      });
-      signupLink.onclick = (()=>{
-        signupBtn.click();
-        return false;
-      });
+  // Select all required elements
+const loginText = document.querySelector(".title-text .login");
+const signupText = document.querySelector(".title-text .signup");
+const loginForm = document.querySelector("form.login");
+const signupForm = document.querySelector("form.signup");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+const signupLink = document.querySelector("form .signup-link a");
+const sliderTab = document.querySelector(".slider-tab");
 
+// Function to toggle between login and signup forms
+function toggleForms() {
+  if (loginBtn.checked) {
+    loginForm.style.marginLeft = "0%";
+    signupForm.style.marginLeft = "100%";
+    loginText.style.marginLeft = "0%";
+    signupText.style.marginLeft = "100%";
+    sliderTab.style.transform = "translateX(0)";
+  } else {
+    loginForm.style.marginLeft = "-50%";
+    signupForm.style.marginLeft = "0%";
+    loginText.style.marginLeft = "-50%";
+    signupText.style.marginLeft = "0%";
+    sliderTab.style.transform = "translateX(100%)";
+  }
+}
+
+// Add event listeners to buttons
+loginBtn.addEventListener("click", toggleForms);
+signupBtn.addEventListener("click", toggleForms);
+signupLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  signupBtn.click();
+});
 </script>
+</html>
