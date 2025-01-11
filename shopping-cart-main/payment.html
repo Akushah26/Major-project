@@ -6,152 +6,158 @@
     <link rel="stylesheet" href="payment.css">
     <title>Payment Page</title>
     <style>
-      /* Reset some default styles */
-* {
-    box-sizing: border-box;
+     body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4; /* Light gray background */
-    color: #333; /* Dark text color */
-    line-height: 1.6; /* Improved line height for readability */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-h1 {
+h2 {
+    color: #333;
     margin-bottom: 20px;
-    color: #4CAF50; /* Green color for headings */
 }
 
 .payment-option {
-    background: #fff; /* White background for options */
-    border: 1px solid #ddd; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 15px; /* Padding for spacing */
-    margin-bottom: 10px; /* Space between options */
-    transition: box-shadow 0.3s; /* Smooth shadow transition */
+    margin-bottom: 15px;
 }
 
-.payment-option:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+.payment-option label {
+    margin-left: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.expiration-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expiration-date select {
+    width: 48%;
+}
+
+.pay-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+    background-color: #218838;
 }
 
 .hidden {
     display: none;
 }
 
-#card-payment-form {
-    background: #fff; /* White background for the form */
-    border: 1px solid #ddd; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 20px; /* Padding for spacing */
-    margin-top: 20px; /* Space above the form */
-}
-
-.form-group {
-    margin-bottom: 15px; /* Space between form fields */
-}
-
-label {
-    display: block; /* Block display for labels */
-    margin-bottom: 5px; /* Space below labels */
-    font-weight: bold; /* Bold labels */
-}
-
-input[type="text"],
-input[type="month"] {
-    width: 100%; /* Full width inputs */
-    padding: 10px; /* Padding for inputs */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 4px; /* Rounded corners */
-    transition: border-color 0.3s; /* Smooth border color transition */
-}
-
-input[type="text"]:focus,
-input[type="month"]:focus {
-    border-color: #4CAF50; /* Green border on focus */
-    outline: none; /* Remove default outline */
-}
-
-button {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    border: none; /* No border */
-    padding: 10px 20px; /* Padding for spacing */
-    text-align: center; /* Center the text */
-    text-decoration: none; /* No underline */
-    display: inline-block; /* Inline-block display */
-    font-size: 16px; /* Font size */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
-}
-
-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
-}
-
 #confirmation-message {
-    background: #e7f9e7; /* Light green background */
-    border: 1px solid #c3e6c3; /* Green border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 20px; /* Padding for spacing */
-    margin-top: 20px; /* Space above confirmation message */
+    text-align: center;
 }
 
 #go-home-button {
-    margin-top: 10px; /* Space above the button */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Responsive styles */
-@media (max-width: 600px) {
-    body {
-        padding: 10px; /* Reduced padding on smaller screens */
-    }
-
-    h1 {
-        font-size: 24px; /* Smaller heading on mobile */
-    }
-
-    button {
-        width: 100%; /* Full width buttons on mobile */
-    }
+#go-home-button:hover {
+    background-color: #0056b3;
 }
     </style>
 </head>
 <body>
-    <h1>Select Payment Method</h1>
-    <div class="payment-option">
-        <input type="radio" id="cod" name="payment-method" value="cod" checked>
-        <label for="cod">Cash on Delivery</label>
-    </div>
-    <div class="payment-option">
-        <input type="radio" id="card" name="payment-method" value="card">
-        <label for="card">Card Payment</label>
-    </div>
-
-    <div id="card-payment-form" class="hidden">
-        <h2>Card Payment Information</h2>
-        <form id="payment-form" action="/submit-payment" method="POST">
-            <div class="form-group">
-                <label for="name">Name on Card:</label>
-                <input type="text" id="name" name="name" required>
+    <div class="container">
+        <h2>Payment Information</h2>
+        <form id="payment-form">
+            <div class="payment-option">
+                <input type="radio" id="cod" name="payment-method" value="cod">
+                <label for="cod">Cash on Delivery</label>
             </div>
-            <div class="form-group">
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" name="card-number" required pattern="\d{13,16}" inputmode="numeric">
+            <div class="payment-option">
+                <input type="radio" id="card" name="payment-method" value="card" checked>
+                <label for="card">Credit/Debit Card</label>
             </div>
-            <div class="form-group">
-                <label for="expiration-date">Expiration Date:</label>
-                <input type="month" id="expiration-date" name="expiration-date" required>
-            </div>
-            <div class="form-group">
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required pattern="\d{3,4}" inputmode="numeric">
+            <div id="card-payment-form">
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiration-date">Expiration Date</label>
+                    <div class="expiration-date">
+                        <select id="exp-month" name="exp-month" required>
+                            <option value="" disabled selected>Month</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <select id="exp-year" name="exp-year" required>
+                            <option value="" disabled selected>Year</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" required>
+                </div>
             </div>
             <button type="submit" class="pay-button">Pay Now</button>
         </form>
@@ -177,7 +183,7 @@ button:hover {
             });
         });
 
-        // Handle card payment form submission
+        // Handle payment form submission
         document.getElementById('payment-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
             
