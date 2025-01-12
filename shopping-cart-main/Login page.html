@@ -22,20 +22,20 @@
         <div class="slider-tab"></div>
       </div>
       <div class="form-inner">
-        <form action="index.html" class="login">
+        <form  id="login-form"class="login"action="/api/auth/login" method="POST">
           <div class="field">
-            <input type="text" placeholder="Email Address" required>
+            <input type="text" id="email" placeholder="Email Address" required>
           </div>
           <div class="field">
-            <input type="password" placeholder="Password" required>
+            <input type="password" id="password" placeholder="Password" required>
           </div>
           <div class="field btn">
             <div class="btn-layer"></div>
-            <input type="submit" value="Login" class="btn btn-primary">
+            <input type="submit" id="submit" value="Login" class="btn btn-primary">
           </div>
           <div class="signup-link">Not a member? <a href="">Signup now</a></div>
         </form>
-        <form action="#" class="signup">
+        <form id="signup-form"action="/api/auth/signup" method="POST" class="signup">
           <div class="field">
             <input type="text" placeholder="Email Address" required>
           </div>
@@ -47,7 +47,7 @@
           </div>
           <div class="field btn">
             <div class="btn-layer"></div>
-            <input type="submit" value="Signup" class="btn btn-primary">
+            <input type="submit" id="submit" value="Signup" class="btn btn-primary">
           </div>
         </form>
       </div>
@@ -93,4 +93,51 @@ signupLink.addEventListener("click", (e) => {
   signupBtn.click();
 });
 </script>
+<script>
+ document.getElementById('login-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    console.log("result")
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+    if (response.ok) {
+        // Redirect to index.html after successful login
+        window.location.href = 'index.html';
+    } else {
+        alert(result.error || 'Login failed');
+    }
+});
+
+document.getElementById('signup-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+    console.log(result)
+    if (response.ok) {
+        // Redirect to index.html after successful signup
+        window.location.href = 'index.html';
+    } else {
+        alert(result.error || 'Signup failed');
+    }
+});
+  </script>
 </html>
