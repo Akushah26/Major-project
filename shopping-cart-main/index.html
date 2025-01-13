@@ -27,20 +27,101 @@
         }
 
         .cart {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    z-index: 1;
+}
 
-        .cart.show-cart {
-            display: block;
-        }
+.cart.show-cart {
+    display: block;
+}
+
+.cart-content {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.cart-item span {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.cart-item .quantity {
+    width: 50px;
+    height: 30px;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-item .discard-button {
+    background-color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cart-item .discard-button:hover {
+    background-color: #ddd;
+}
+
+.total {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.total-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.total-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+}
+
+.btn-buy {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-buy:hover {
+    background-color: #3e8e41;
+}
     </style>
 </head>
 
@@ -49,7 +130,7 @@
         <div class="nav container">
             <a href="#" class="logo">Gear Galaxy</a>
             <nav>
-                <a href="compare.html" class="nav-link">Compare</a> | <a href="review.html" class="nav-link">Reviews</a> | <i class="bx bx-shopping-bag" id="cart-icon">Cart</i>
+                <a href="compare.html" class="nav-link">Compare</a>|<a href="review.html" class="nav-link">Reviews</a>|<i class="bx bx-shopping-bag" id="cart-icon">Cart</i>
             </nav>
             <div class="cart">
                 <h2 class="cart-title">Your Cart</h2>
@@ -76,101 +157,100 @@
                         src="product photo/Samsung-Galaxy-S23.jpg" 
                         alt="Samsung Galaxy S23" 
                         class="card-img-top" 
-                        style="width: 200px; height: auto;
-                        align-self:center;"
+                        style="width: 200px; height: auto;align-self:center;"
                     >
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S23</h2>
                             <span class="price">₹55000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23" data-price="55000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23" data-price="55000" data-image="product photo/Samsung-Galaxy-S23.jpg"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 2 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/Samsung Galaxy S23 fe.jpg" alt="Samsung Galaxy S23FE" class="card-img-top" style="width: 245px; height: auto;">
+                        <img src="product photo/Samsung Galaxy S23 fe.jpg" alt="Samsung Galaxy S23FE" class="card-img-top" style="width: 245px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S23FE</h2>
                             <span class="price">₹60000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23FE" data-price="60000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23FE" data-price="60000" data-image="product photo/Samsung Galaxy S23 fe.jpg"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 3 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/SamsungGalaxyS23Ultra.jpg.webp" alt="SamsungGalaxyS23Ultra" class="card-img-top" style="width: 245px; height: auto;">
+                        <img src="product photo/SamsungGalaxyS23Ultra.jpg.webp" alt="SamsungGalaxyS23Ultra" class="card-img-top" style="width: 245px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S23Ultra</h2>
                             <span class="price">₹85000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23Ultra" data-price="85000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23Ultra" data-price="85000" data-image="product photo/SamsungGalaxyS23Ultra.jpg.webp"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 4 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/S24.jpeg" alt="Samsung Galaxy S24" class="card-img-top" style="width: 500px; height: auto;">
+                        <img src="product photo/S24.jpeg" alt="Samsung Galaxy S24" class="card-img-top" style="width: 500px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24</h2>
                             <span class="price">₹65000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24" data-price="65000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24" data-price="65000" data-image="product photo/S24.jpeg"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 5 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/S24+.png.webp" alt="Samsung Galaxy S24+" class="card-img-top" style="width: 260px; height: auto;">
+                        <img src="product photo/S24+.png.webp" alt="Samsung Galaxy S24+" class="card-img-top" style="width: 260px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24+</h2>
                             <span class="price">₹80000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24+" data-price="80000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24+" data-price="80000" data-image="product photo/S24+.png.webp"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 6 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/S24 Ultra.jpg" alt="Samsung Galaxy S24 Ultra" class="card-img-top" style="width: 260px; height: auto;">
+                        <img src="product photo/S24 Ultra.jpg" alt="Samsung Galaxy S24 Ultra" class="card-img-top" style="width: 260px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24Ultra</h2>
                             <span class="price">₹110000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24Ultra" data-price="110000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24Ultra" data-price="110000" data-image="product photo/S24 Ultra.jpg"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 7 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/CGG_Samsung_Galaxy_M51.jpg" alt="Samsung Galaxy M51" class="card-img-top" style="width: 260px; height: auto;">
+                        <img src="product photo/CGG_Samsung_Galaxy_M51.jpg" alt="Samsung Galaxy M51" class="card-img-top" style="width: 260px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M51</h2>
                             <span class="price">₹50000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M51" data-price="50000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M51" data-price="50000" data-image="product photo/CGG_Samsung_Galaxy_M51.jpg"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 8 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/m35.jpeg" alt="Samsung Galaxy M35" class="card-img-top" style="width: 260px; height: auto;">
+                        <img src="product photo/m35.jpeg" alt="Samsung Galaxy M35" class="card-img-top" style="width: 460px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M35</h2>
                             <span class="price">₹45000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M35" data-price="45000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M35" data-price="45000" data-image="product photo/m35.jpeg"></i>
                         </div>
                     </div>
                 </div>
                 <!-- Product 9 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/Samsung-Galaxy-M15-5G.jpg.webp" alt="Samsung Galaxy M15" class="card-img-top" style="width: 260px; height: auto;">
+                        <img src="product photo/Samsung-Galaxy-M15-5G.jpg.webp" alt="Samsung Galaxy M15" class="card-img-top" style="width: 230px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M15</h2>
                             <span class="price">₹35000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M15" data-price="35000"></i>
+                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M15" data-price="35000" data-image="product photo/Samsung-Galaxy-M15-5G.jpg.webp"></i>
                         </div>
                     </div>
                 </div>
@@ -185,6 +265,84 @@
         const cartContent = document.querySelector('.cart-content');
         let totalPrice = 0;
 
+        // Function to update the total price in the cart
+        function updateTotalPrice() {
+            document.querySelector('.total-price').innerText = `₹${totalPrice}`;
+        }
+
+        // Function to open the cart
+        function openCart() {
+            cart.classList.add('show-cart');
+        }
+
+        // Add event listeners to all add-cart icons
+        const addCartIcons = document.querySelectorAll('.add-cart');
+        addCartIcons.forEach(icon => {
+            icon.addEventListener('click', (event) => {
+                const product = event.target.getAttribute('data-product');
+                const price = parseInt(event.target.getAttribute('data-price'));
+                const productImage = event.target.getAttribute('data-image');
+
+                console.log("Product Image Path:", productImage);
+                // Check if the product is already in the cart
+                const existingCartItem = cartContent.querySelector(`.cart-item[data-product="${product}"]`);
+
+                if (existingCartItem) {
+                    // If the product is already in the cart, increment its quantity
+                    const quantityInput = existingCartItem.querySelector('.quantity');
+                    const currentQuantity = parseInt(quantityInput.value);
+                    quantityInput.value = currentQuantity + 1;
+
+                    // Update the total price
+                    totalPrice += price;
+                    updateTotalPrice();
+                } else {
+                    // If the product is not in the cart, create a new cart item
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.setAttribute('data-product', product);
+                    cartItem.innerHTML = `
+                        <img src="${productImage}" alt="${product}" style="width: 50px; height: 50px; margin-right: 10px;">
+                        <span>${product}</span> 
+                        <span>₹${price}</span>
+                        <input type="number" class="quantity" value="1" min="1">
+                        <button class="discard-button">Discard</button>
+                    `;
+
+                    // Append the new item to the cart content
+                    cartContent.appendChild(cartItem);
+
+                    // Add an event listener to the discard button
+                    const discardButton = cartItem.querySelector('.discard-button');
+                    discardButton.addEventListener('click', () => {
+                        // Remove the cart item from the cart content
+                        cartContent.removeChild(cartItem);
+
+                        // Update the total price
+                        totalPrice -= price * parseInt(cartItem.querySelector('.quantity').value);
+                        updateTotalPrice();
+                    });
+
+                    // Add an event listener to the quantity input
+                    const quantityInput = cartItem.querySelector('.quantity');
+                    quantityInput.addEventListener('change', () => {
+                        const newQuantity = parseInt(quantityInput.value);
+                        const oldQuantity = parseInt(quantityInput.getAttribute('data-old-quantity')) || 1;
+                        totalPrice += price * (newQuantity - oldQuantity);
+                        quantityInput.setAttribute('data-old-quantity', newQuantity);
+                        updateTotalPrice();
+                    });
+
+                    // Update the total price
+                    totalPrice += price;
+                    updateTotalPrice();
+                }
+
+                // Open the cart automatically when a product is added
+                openCart();
+            });
+        });
+
         // Add an event listener to the cart icon
         cartIcon.addEventListener('click', () => {
             cart.classList.toggle('show-cart');
@@ -197,27 +355,12 @@
         closeCartIcon.addEventListener('click', () => {
             cart.classList.remove('show-cart');
         });
-
-        // Add event listeners to all add-cart icons
-        const addCartIcons = document.querySelectorAll('.add-cart');
-        addCartIcons.forEach(icon => {
-            icon.addEventListener('click', (event) => {
-                const product = event.target.getAttribute ('data-product');
-                const price = parseInt(event.target.getAttribute('data-price'));
-                
-                // Create a new cart item
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `<span>${product}</span> <span>₹${price}</span>`;
-                
-                // Append the new item to the cart content
-                cartContent.appendChild(cartItem);
-                
-                // Update the total price
-                totalPrice += price;
-                document.querySelector('.total-price').innerText = `₹${totalPrice}`;
-            });
-        });
+        cartItem.innerHTML = ` <img src="${productImage}" alt="${product}" style="width: 50px; height: 50px; margin-right: 10px;">
+    <span>${product}</span> 
+    <span>₹${price}</span>
+    <input type="number" class="quantity" value="1" min="1">
+    <button class="discard-button">Discard</button>
+`;
     </script>
 </body>
 </html>

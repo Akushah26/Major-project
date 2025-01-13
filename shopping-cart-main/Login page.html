@@ -22,20 +22,21 @@
         <div class="slider-tab"></div>
       </div>
       <div class="form-inner">
-        <form  id="login-form"class="login"action="/api/auth/login" method="POST">
+        <form action="#" class="login">
           <div class="field">
-            <input type="text" id="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Email Address" required>
           </div>
           <div class="field">
-            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" placeholder="Password" required>
           </div>
+          <div class="pass-link"><a href="#">Forgot password?</a></div>
           <div class="field btn">
             <div class="btn-layer"></div>
-            <input type="submit" id="submit" value="Login" class="btn btn-primary">
+            <input type="submit" value="Login">
           </div>
           <div class="signup-link">Not a member? <a href="">Signup now</a></div>
         </form>
-        <form id="signup-form"action="/api/auth/signup" method="POST" class="signup">
+        <form action="#" class="signup">
           <div class="field">
             <input type="text" placeholder="Email Address" required>
           </div>
@@ -47,97 +48,41 @@
           </div>
           <div class="field btn">
             <div class="btn-layer"></div>
-            <input type="submit" id="submit" value="Signup" class="btn btn-primary">
+            <input type="submit" value="Signup">
           </div>
         </form>
       </div>
     </div>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
 </body>
 <script>
-  // Select all required elements
-const loginText = document.querySelector(".title-text .login");
-const signupText = document.querySelector(".title-text .signup");
-const loginForm = document.querySelector("form.login");
-const signupForm = document.querySelector("form.signup");
-const loginBtn = document.querySelector("label.login");
-const signupBtn = document.querySelector("label.signup");
-const signupLink = document.querySelector("form .signup-link a");
-const sliderTab = document.querySelector(".slider-tab");
-
-// Function to toggle between login and signup forms
-function toggleForms() {
-  if (loginBtn.checked) {
-    loginForm.style.marginLeft = "0%";
-    signupForm.style.marginLeft = "100%";
-    loginText.style.marginLeft = "0%";
-    signupText.style.marginLeft = "100%";
-    sliderTab.style.transform = "translateX(0)";
-  } else {
-    loginForm.style.marginLeft = "-50%";
-    signupForm.style.marginLeft = "0%";
-    loginText.style.marginLeft = "-50%";
-    signupText.style.marginLeft = "0%";
-    sliderTab.style.transform = "translateX(100%)";
-  }
-}
-
-// Add event listeners to buttons
-loginBtn.addEventListener("click", toggleForms);
-signupBtn.addEventListener("click", toggleForms);
-signupLink.addEventListener("click", (e) => {
+  const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+      signupBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (()=>{
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      });
+      signupLink.onclick = (()=>{
+        signupBtn.click();
+        return false;
+      });
+      // Add an event listener to the login form
+loginForm.addEventListener("submit", (e) => {
+  // Prevent the default form submission behavior
   e.preventDefault();
-  signupBtn.click();
+
+  // Redirect to index.html
+  window.location.href = "index.html";
 });
 </script>
-<script>
- document.getElementById('login-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
-    console.log("result")
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-
-    const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-
-    const result = await response.json();
-    if (response.ok) {
-        // Redirect to index.html after successful login
-        window.location.href = 'index.html';
-    } else {
-        alert(result.error || 'Login failed');
-    }
-});
-
-document.getElementById('signup-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-
-    const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-
-    const result = await response.json();
-    console.log(result)
-    if (response.ok) {
-        // Redirect to index.html after successful signup
-        window.location.href = 'index.html';
-    } else {
-        alert(result.error || 'Signup failed');
-    }
-});
-  </script>
-</html>
