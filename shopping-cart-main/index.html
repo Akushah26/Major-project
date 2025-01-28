@@ -16,9 +16,7 @@
         <div class="nav container">
             <a href="#" class="logo">Gear Galaxy</a>
             <nav>
-                <a href="compare.html" class="nav-link">Compare</a>
-                <a href="review.html" class="nav-link">Reviews</a>
-                <i class="bx bx-shopping-bag" id="cart-icon">Cart</i>
+                <a href="compare.html" class="nav-link">Compare</a><a href="review.html" class="nav-link">Reviews</a><i class="bx bx-shopping-bag" id="cart-icon">Cart</i>
             </nav>
             <div class="cart">
                 <h2 class="cart-title">Your Cart</h2>
@@ -78,7 +76,7 @@
                 <!-- Product 4 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/S24.jpeg" alt="Samsung Galaxy S24" class="card-img-top" style="width: 500px; height: auto;align-self:center;">
+                        <img src="product photo/S24.jpeg" alt="Samsung Galaxy S24" class="card-img-top" style="width: 320px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24</h2>
                             <span class="price">₹65000</span>
@@ -89,7 +87,7 @@
                 <!-- Product 5 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/S24+.png.webp" alt="Samsung Galaxy S24+" class="card-img-top" style="width: 260px; height: auto;align-self:center;">
+                        <img src="product photo/S24+.png.webp" alt="Samsung Galaxy S24+" class="card-img-top" style="width: 255px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24+</h2>
                             <span class="price">₹80000</span>
@@ -100,7 +98,7 @@
                 <!-- Product 6 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/S24 Ultra.jpg" alt="Samsung Galaxy S24 Ultra" class="card-img-top" style="width: 260px; height: auto;align-self:center;">
+                        <img src="product photo/S24 Ultra.jpg" alt="Samsung Galaxy S24 Ultra" class="card-img-top" style="width: 255px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24Ultra</h2>
                             <span class="price">₹110000</span>
@@ -111,7 +109,7 @@
                 <!-- Product 7 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/CGG_Samsung_Galaxy_M51.jpg" alt="Samsung Galaxy M51" class="card-img-top" style="width: 260px; height: auto;align-self:center;">
+                        <img src="product photo/CGG_Samsung_Galaxy_M51.jpg" alt="Samsung Galaxy M51" class="card-img-top" style="width: 275px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M51</h2>
                             <span class="price">₹50000</span>
@@ -122,7 +120,7 @@
                 <!-- Product 8 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/m35.jpeg" alt="Samsung Galaxy M35" class="card-img-top" style="width: 460px; height: auto;align-self:center;">
+                        <img src="product photo/m35.jpeg" alt="Samsung Galaxy M35" class="card-img-top" style="width: 340px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M35</h2>
                             <span class="price">₹45000</span>
@@ -133,7 +131,7 @@
                 <!-- Product 9 -->
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="product photo/Samsung-Galaxy-M15-5G.jpg.webp" alt="Samsung Galaxy M15" class="card-img-top" style="width: 230px; height: auto;align-self:center;">
+                        <img src="product photo/Samsung-Galaxy-M15-5G.jpg.webp" alt="Samsung Galaxy M15" class="card-img-top" style="width: 240px; height: auto;align-self:center;">
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M15</h2>
                             <span class="price">₹35000</span>
@@ -144,121 +142,125 @@
             </div>
         </div>
         <script> 
-        document.addEventListener('DOMContentLoaded', () => {
-    const cartIcon = document.querySelector('#cart-icon');
-    const cart = document.querySelector('.cart');
-    const closeCart = document.querySelector('#close-cart');
-
-    cartIcon.addEventListener('click', () => cart.classList.add('active'));
-    closeCart.addEventListener('click', () => cart.classList.remove('active'));
-
-    const initCartFunctions = () => {
-        document.querySelectorAll('.cart-remove').forEach((button) => {
-            button.addEventListener('click', removeCartItem);
-        });
-
-        document.querySelectorAll('.cart-quantity').forEach((input) => {
-            input.addEventListener('change', quantityChanged);
-        });
-
-        document.querySelectorAll('.add-cart').forEach((button) => {
-            button.addEventListener('click', addCartClicked);
-        });
-
-        document.querySelector('.btn-buy').addEventListener('click', buyButtonClicked);
-    };
-
-    initCartFunctions();
-
-    function buyButtonClicked() {
+      const cartIcon = document.querySelector('#cart-icon');
+        const cart = document.querySelector('.cart');
+        const closeCart = document.querySelector('#close-cart');
         const cartContent = document.querySelector('.cart-content');
-        const cartItems = cartContent.querySelectorAll('.cart-box');
-        if (cartItems.length === 0) {
-            alert('Your cart is empty');
-        } else {
-            alert('Order successfully placed');
-            while (cartContent.firstChild) {
-                cartContent.removeChild(cartContent.firstChild);
+        let totalPrice = 0;
+
+        cartIcon.addEventListener('click', () => cart.classList.add('active'));
+        closeCart.addEventListener('click', () => cart.classList.remove('active'));
+
+        const initCartFunctions = () => {
+            document.querySelectorAll('.cart-remove').forEach((button) => {
+                button.addEventListener('click', removeCartItem);
+            });
+
+            document.querySelectorAll('.cart-quantity').forEach((input) => {
+                input.addEventListener('change', quantityChanged);
+            });
+
+            document.querySelectorAll('.add-cart').forEach((button) => {
+                button.addEventListener('click', addCartClicked);
+            });
+
+            document.querySelector('.btn-buy').addEventListener('click', buyButtonClicked);
+        };
+
+        initCartFunctions();
+
+        function buyButtonClicked() {
+            const cartContent = document.querySelector('.cart-content');
+            const cartItems = cartContent.querySelectorAll('.cart-box');
+            if (cartItems.length === 0) {
+                alert('Your cart is empty');
+            } else {
+                alert('Order successfully placed');
+                while (cartContent.firstChild) {
+                    cartContent.removeChild(cartContent.firstChild);
+                }
+                document.querySelector('.total-price').innerText = '₹0';
+                closeCart();
             }
-            document.querySelector('.total-price').innerText = '0,00 €';
-        }
-    }
-
-    function removeCartItem(event) {
-        event.target.parentElement.remove();
-        updateTotalPrice();
-    }
-
-    function quantityChanged(event) {
-        const input = event.target;
-        if (isNaN(input.value) || input.value <= 0) {
-            input.value = 1;
-        }
-        updateTotalPrice();
-    }
-
-    let isAddingToCart = false;
-
-    function addCartClicked(event) {
-        isAddingToCart = true;
-        const button = event.target;
-        const shopProducts = button.parentElement;
-        const title = shopProducts.querySelector('.product-title').innerText;
-        const price = shopProducts.querySelector('.price').innerText;
-        const productImg = shopProducts.querySelector('.product-img').src;
-        addProductToCart(title, price, productImg);
-        updateTotalPrice();
-        setTimeout(() => (isAddingToCart = false), 100);
-    }
-
-    function addProductToCart(title, price, productImg) {
-        const cartItems = document.querySelector('.cart-content');
-        const cartItemNames = cartItems.querySelectorAll('.cart-product-title');
-
-        if (Array.from(cartItemNames).some((itemName) => itemName.innerText === title)) {
-            alert('This item is already in your cart');
-            return;
         }
 
-        const cartShopBox = document.createElement('div');
-        cartShopBox.classList.add('cart-box');
-        cartShopBox.innerHTML = `
-            <img src="${productImg}" alt="${title}" class="cart-img">
-            <div class="detail-box">
-                <div class="cart-product-title">${title}</div>
-                <div class="cart-price">${price}</div>
-                <input type="number" value="1" class="cart-quantity">
-            </div>
-            <i class="bx bxs-trash-alt cart-remove"></i>`;
-        cartItems.append(cartShopBox);
+        function removeCartItem(event) {
+            event.target.parentElement.remove();
+            updateTotalPrice();
+            if (cartContent.children.length === 0) {
+                closeCart();
+            }
+        }
 
-        cartShopBox.querySelector('.cart-remove').addEventListener('click', removeCartItem);
-        cartShopBox.querySelector('.cart-quantity').addEventListener('change', quantityChanged);
+        function quantityChanged(event) {
+            const input = event.target;
+            if (isNaN(input.value) || input.value <= 0) {
+                input.value = 1;
+            }
+            updateTotalPrice();
+        }
 
-        cart.classList.add('active');
-    }
+        let isAddingToCart = false;
 
-    function updateTotalPrice() {
-        const cartContent = document.querySelector('.cart-content');
-        const cartBoxes = cartContent.querySelectorAll('.cart-box');
-        let total = 0;
-        cartBoxes.forEach((cartBox) => {
-            const priceElement = cartBox.querySelector('.cart-price');
-            const quantityElement = cartBox.querySelector('.cart-quantity');
-            let price = parseFloat(priceElement.innerText.replace('€', '').replace(',', '.'));
-            let quantity = parseInt(quantityElement.value);
-            total += price * quantity;
+        function addCartClicked(event) {
+            isAddingToCart = true;
+            const button = event.target;
+            const shopProducts = button.parentElement;
+            const title = shopProducts.querySelector('.product-title').innerText;
+            const price = shopProducts.querySelector('.price').innerText;
+            const productImg = shopProducts.querySelector('.product-img').src;
+            addProductToCart(title, price, productImg);
+            updateTotalPrice();
+            setTimeout(() => (isAddingToCart = false), 100);
+        }
+
+        function addProductToCart(title, price, productImg) {
+            const cartItems = document.querySelector('.cart-content');
+            const cartItemNames = cartItems.querySelectorAll('.cart-product-title');
+
+            if (Array.from(cartItemNames).some((itemName) => itemName.innerText === title)) {
+                alert('This item is already in your cart');
+                return;
+            }
+
+            const cartShopBox = document.createElement('div');
+            cartShopBox.classList.add('cart-box');
+            cartShopBox.innerHTML = `
+                <img src="${productImg}" alt="${title}" class="cart-img">
+                <div class="detail-box">
+                    <div class="cart-product-title">${title}</div>
+                    <div class="cart-price">${price}</div>
+                    <input type="number" value="1" class="cart-quantity">
+                </div>
+                <i class="bx bxs-trash-alt cart-remove"></i>`;
+            cartItems.append(cartShopBox);
+
+            cartShopBox.querySelector('.cart-remove').addEventListener('click', removeCartItem);
+            cartShopBox.querySelector('.cart-quantity').addEventListener('change', quantityChanged);
+
+            cart.classList.add('active');
+        }
+
+        function updateTotalPrice() {
+            const cartContent = document.querySelector('.cart-content');
+            const cartBoxes = cartContent.querySelectorAll('.cart-box');
+            let total = 0;
+            cartBoxes.forEach((cartBox) => {
+                const priceElement = cartBox.querySelector('.cart-price');
+                const quantityElement = cartBox.querySelector('.cart-quantity');
+                let price = parseFloat(priceElement.innerText.replace('₹', '').replace(',', '.'));
+                let quantity = parseInt(quantityElement.value);
+                total += price * quantity;
+            });
+
+            document.querySelector('.total-price').innerText = `₹${total.toFixed(2)}`;
+        }
+
+        document.addEventListener('click', (event) => {
+            if (!cart.contains(event.target) && !cartIcon.contains(event.target) && !isAddingToCart && cart.classList.contains('active')) {
+                cart.classList.remove('active');
+            }
         });
-
-        document.querySelector('.total-price').innerText = `${total.toFixed(2).replace('.', ',')} €`;
-    }
-
-    document.addEventListener('click', (event) => {
-        if (!cart.contains(event.target) && !cartIcon.contains(event.target) && !isAddingToCart && cart.classList.contains('active')) {
-            cart.classList.remove('active');
-        }
-    });
-});
         </script>
 </body>
 </html>
