@@ -5,28 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address </title>
     <style>
-        body {
+     /* General Styles */
+body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f4f4f4;
+    text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 .container {
     max-width: 600px;
     margin: 50px auto;
+    background: white;
     padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+h1 {
     color: #333;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
+/* Rating Display */
+.rating {
+    font-size: 22px;
+    color: #ff9800;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* Star Rating */
+.stars {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.star {
+    font-size: 32px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+    padding: 5px;
+}
+
+.star:hover,
+.star.active {
+    color: #ff9800;
+    transform: scale(1.2);
+}
+
+/* Review Box */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+/* Buttons */
+button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+}
+
+#backButton {
+    background-color: #666;
+}
+
+#backButton:hover {
+    background-color: #444;
+}
+
+/* Reviews Section */
+.reviews {
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px;
+}
+
+.review-item {
+    background: #fff8e1;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-left: 5px solid #ff9800;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
 .form-group {
+    text-align: left;
     margin-bottom: 15px;
 }
 
@@ -39,32 +127,34 @@ h2 {
 
 .form-control {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     font-size: 16px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     transition: border-color 0.3s;
-    margin-bottom: 15px;
+    background: #f9f9f9;
 }
 
 .form-control:focus {
-    border-color: #80bdff;
+    border-color: #ff9800;
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
 }
 
 .is-invalid {
     border-color: #dc3545;
+    background-color: #ffe6e6;
 }
 
 .is-invalid:focus {
     border-color: #dc3545;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
 }
 
 .form-check-inline {
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 
 .form-check-inline .form-check-input {
@@ -73,19 +163,20 @@ h2 {
 
 .submit-button {
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     font-size: 18px;
     color: #fff;
     background-color: #007bff;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .submit-button:hover {
     background-color: #0056b3;
 }
+
     </style>
 </head>
 <body>
