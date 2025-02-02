@@ -48,7 +48,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S23</h2>
                             <span class="price">₹55000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23" data-price="55000" data-image="product photo/Samsung-Galaxy-S23.jpg"></i>
+                            <i class="bx bx-shopping-bag add-cart"></i>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S23FE</h2>
                             <span class="price">₹60000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23FE" data-price="60000" data-image="product photo/Samsung Galaxy S23 fe.jpg"></i>
+                            <i class="bx bx-shopping-bag add-cart"></i>   
                         </div>
                     </div>
                 </div>
@@ -70,8 +70,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S23Ultra</h2>
                             <span class="price">₹85000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S23Ultra" data-price="85000" data-image="product photo/SamsungGalaxyS23Ultra.jpg.webp"></i>
-                        </div>
+                            <i class="bx bx-shopping-bag add-cart"></i> </div>
                     </div>
                 </div>
                 <!-- Product 4 -->
@@ -81,8 +80,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24</h2>
                             <span class="price">₹65000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24" data-price="65000" data-image="product photo/S24.jpeg"></i>
-                        </div>
+                            <i class="bx bx-shopping-bag add-cart"></i> </div>
                     </div>
                 </div>
                 <!-- Product 5 -->
@@ -92,8 +90,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24+</h2>
                             <span class="price">₹80000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24+" data-price="80000" data-image="product photo/S24+.png.webp"></i>
-                        </div>
+                            <i class="bx bx-shopping-bag add-cart"></i>  </div>
                     </div>
                 </div>
                 <!-- Product 6 -->
@@ -103,8 +100,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy S24Ultra</h2>
                             <span class="price">₹110000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy S24Ultra" data-price="110000" data-image="product photo/S24 Ultra.jpg"></i>
-                        </div>
+                            <i class="bx bx-shopping-bag add-cart"></i>  </div>
                     </div>
                 </div>
                 <!-- Product 7 -->
@@ -114,8 +110,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M51</h2>
                             <span class="price">₹50000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M51" data-price="50000" data-image="product photo/CGG_Samsung_Galaxy_M51.jpg"></i>
-                        </div>
+                            <i class="bx bx-shopping-bag add-cart"></i>  </div>
                     </div>
                 </div>
                 <!-- Product 8 -->
@@ -125,8 +120,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M35</h2>
                             <span class="price">₹45000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M35" data-price="45000" data-image="product photo/m35.jpeg"></i>
-                        </div>
+                            <i class="bx bx-shopping-bag add-cart"></i> </div>
                     </div>
                 </div>
                 <!-- Product 9 -->
@@ -136,8 +130,7 @@
                         <div class="card-body">
                             <h2 class="card-title">Samsung Galaxy M15</h2>
                             <span class="price">₹35000</span>
-                            <i class="bx bx-shopping-bag add-cart" data-product="Samsung Galaxy M15" data-price="35000" data-image="product photo/Samsung-Galaxy-M15-5G.jpg.webp"></i>
-                        </div>
+                            <i class="bx bx-shopping-bag add-cart"></i>  </div>
                     </div>
                 </div>
             </div>
@@ -206,10 +199,11 @@
         function addCartClicked(event) {
             isAddingToCart = true;
             const button = event.target;
-            const shopProducts = button.parentElement;
-            const title = shopProducts.querySelector('.product-title').innerText;
+            // const shopProducts = button.parentElement;
+            const shopProducts = button.closest('.card');
+            const title = shopProducts.querySelector('.card-title').innerText;
             const price = shopProducts.querySelector('.price').innerText;
-            const productImg = shopProducts.querySelector('.product-img').src;
+            const productImg = shopProducts.querySelector('.card-img-top').src;
             addProductToCart(title, price, productImg);
             updateTotalPrice();
             setTimeout(() => (isAddingToCart = false), 100);
