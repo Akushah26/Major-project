@@ -137,7 +137,7 @@
             </div>
         </div>
         <script> 
-      const cartIcon = document.querySelector('#cart-icon');
+              const cartIcon = document.querySelector('#cart-icon');
         const cart = document.querySelector('.cart');
         const closeCart = document.querySelector('#close-cart');
         const cartContent = document.querySelector('.cart-content');
@@ -165,19 +165,20 @@
         initCartFunctions();
 
         function buyButtonClicked() {
-            const cartContent = document.querySelector('.cart-content');
-            const cartItems = cartContent.querySelectorAll('.cart-box');
-            if (cartItems.length === 0) {
-                alert('Your cart is empty');
-            } else {
-                alert('Order successfully placed');
-                while (cartContent.firstChild) {
-                    cartContent.removeChild(cartContent.firstChild);
-                }
-                document.querySelector('.total-price').innerText = '₹0';
-                closeCart();
-            }
+    const cartContent = document.querySelector('.cart-content');
+    const cartItems = cartContent.querySelectorAll('.cart-box');
+    if (cartItems.length === 0) {
+        alert('Your cart is empty');
+    } else {
+        while (cartContent.firstChild) {
+            cartContent.removeChild(cartContent.firstChild);
         }
+        document.querySelector('.total-price').innerText = '₹0';
+        cart.classList.remove('active'); // Properly close the cart
+        window.location.href = 'address.html'; // Redirect to address page
+    }
+}
+
 
         function removeCartItem(event) {
             event.target.parentElement.remove();
@@ -200,7 +201,6 @@
         function addCartClicked(event) {
             isAddingToCart = true;
             const button = event.target;
-            // const shopProducts = button.parentElement;
             const shopProducts = button.closest('.card');
             const title = shopProducts.querySelector('.card-title').innerText;
             const price = shopProducts.querySelector('.price').innerText;

@@ -176,14 +176,14 @@ h2 {
                         </select>
                         <select id="exp-year" name="exp-year" required>
                             <option value="" disabled selected>Year</option>
-                            <option value="2023">2023</option>
-                            <option value="2024">2024</option>
                             <option value="2025">2025</option>
                             <option value="2026">2026</option>
                             <option value="2027">2027</option>
                             <option value="2028">2028</option>
                             <option value="2029">2029</option>
                             <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
                         </select>
                     </div>
                 </div>
@@ -202,33 +202,50 @@ h2 {
     </div>
 
     <script>
-        // Show/hide payment form based on selected payment method
-        const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
-        const cardPaymentForm = document.getElementById('card-payment-form');
+// Select payment method options and card payment form
+const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+const cardPaymentForm = document.getElementById('card-payment-form');
 
-        paymentOptions.forEach(option => {
-            option.addEventListener('change', function() {
-                if (this.value === 'card') {
-                    cardPaymentForm.classList.remove('hidden');
-                } else {
-                    cardPaymentForm.classList.add('hidden');
-                }
-            });
-        });
+// Show/hide card payment form based on selected payment method
+paymentOptions.forEach(option => {
+    option.addEventListener('change', function () {
+        if (this.value === 'card') {
+            cardPaymentForm.classList.remove('hidden');
+        } else {
+            cardPaymentForm.classList.add('hidden');
+        }
+    });
+});
 
-        // Handle payment form submission
-        document.getElementById('payment-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            // Here you can include any additional validation or processing
+// Handle form submission
+document.getElementById('payment-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default form submission
 
-            // Display confirmation message
-            const confirmationMessage = document.getElementById('confirmation-message');
-            confirmationMessage.classList.remove('hidden');
-            
-            // Optionally, clear the form
-            this.reset();
-        });
+    // Get selected payment method
+    const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+    if (selectedPaymentMethod === 'card') {
+        // Validate card details (only for card payments)
+        const cardNumber = document.getElementById('card-number').value.trim();
+        const expMonth = document.getElementById('exp-month').value;
+        const expYear = document.getElementById('exp-year').value;
+        const cvv = document.getElementById('cvv').value.trim();
+
+        if (!cardNumber || !expMonth || !expYear || !cvv) {
+            alert("Please fill in all card details.");
+            return;
+        }
+    }
+
+    // Alert for successful order placement
+    alert("Your order has been placed successfully!");
+
+    // Redirect to index.html after alert
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 500);
+});
+
     </script>
 </body>
 </html>
