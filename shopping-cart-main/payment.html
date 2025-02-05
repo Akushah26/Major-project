@@ -202,50 +202,59 @@ h2 {
     </div>
 
     <script>
-// Select payment method options and card payment form
-const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
-const cardPaymentForm = document.getElementById('card-payment-form');
-
-// Show/hide card payment form based on selected payment method
-paymentOptions.forEach(option => {
-    option.addEventListener('change', function () {
-        if (this.value === 'card') {
-            cardPaymentForm.classList.remove('hidden');
-        } else {
-            cardPaymentForm.classList.add('hidden');
+        // Select payment method options and card payment form
+        const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+        const cardPaymentForm = document.getElementById('card-payment-form');
+    
+        // Function to enable/disable card fields
+        function toggleCardFields(enable) {
+          document.getElementById('card-number').disabled = !enable;
+          document.getElementById('exp-month').disabled = !enable;
+          document.getElementById('exp-year').disabled = !enable;
+          document.getElementById('cvv').disabled = !enable;
         }
-    });
-});
-
-// Handle form submission
-document.getElementById('payment-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // Get selected payment method
-    const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
-
-    if (selectedPaymentMethod === 'card') {
-        // Validate card details (only for card payments)
-        const cardNumber = document.getElementById('card-number').value.trim();
-        const expMonth = document.getElementById('exp-month').value;
-        const expYear = document.getElementById('exp-year').value;
-        const cvv = document.getElementById('cvv').value.trim();
-
-        if (!cardNumber || !expMonth || !expYear || !cvv) {
-            alert("Please fill in all card details.");
-            return;
-        }
-    }
-
-    // Alert for successful order placement
-    alert("Your order has been placed successfully!");
-
-    // Redirect to index.html after alert
-    setTimeout(() => {
-        window.location.href = 'index.html';
-    }, 500);
-});
-
-    </script>
+    
+        // Initially enable card fields if the card option is selected by default
+        toggleCardFields(true);
+    
+        // Show/hide card payment form and enable/disable fields based on selected payment method
+        paymentOptions.forEach(option => {
+          option.addEventListener('change', function () {
+            if (this.value === 'card') {
+              cardPaymentForm.classList.remove('hidden');
+              toggleCardFields(true);
+            } else {
+              cardPaymentForm.classList.add('hidden');
+              toggleCardFields(false);
+            }
+          });
+        });
+    
+        // Handle form submission
+        document.getElementById('payment-form').addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent default form submission
+    
+          // Get selected payment method
+          const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+          
+          if (selectedPaymentMethod === 'card') {
+            // Validate card details (only for card payments)
+            const cardNumber = document.getElementById('card-number').value.trim();
+            const expMonth = document.getElementById('exp-month').value;
+            const expYear = document.getElementById('exp-year').value;
+            const cvv = document.getElementById('cvv').value.trim();
+    
+            if (!cardNumber || !expMonth || !expYear || !cvv) {
+              alert("Please fill in all card details.");
+              return;
+            }
+          }
+    
+          // Hide the payment form and show the confirmation message
+          document.getElementById('payment-form').classList.add('hidden');
+          document.getElementById('confirmation-message').classList.remove('hidden');
+        });
+      </script>
+        
 </body>
 </html>
